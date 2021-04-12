@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+/* #047aed */
+
+:root {
+    --primary-color: #444;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    /* background-color: #444; */
+}
+
+h1,
+h2 {
+    font-weight: 300;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.wrapper {
+    position: relative;
+    width: 620px;
+    height: 877px;
+    margin: 50px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.dark-theme {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.light-theme {
+    background-color: #fff;
+    color: var(--dark-color);
+}
+
+.menu {
+    display: none;
+}
+
+/* ---------------- main grid ---------------- */
+
+.wrapper.grid {
+    display: grid;
+    grid-template-columns: 180px auto;
+    grid-template-rows: 160px auto 60px;
+    grid-template-areas:
+        "photo info"
+        "skills experience"
+        "skills footer";
+}
+
+
+/* ---------------- info ---------------- */
+
+header.info {
+    grid-area: info;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+    font-size: 15px;
+    z-index: -1;
+}
+
+.info h1 {
+    flex-basis: 100%;
+    text-align: center;
+    letter-spacing: 5px;
+    border-bottom: 1px solid #fff;
+    /* background-color: #ddd; */
+}
+
+
+.info i {
+    margin-right: 10px;
+}
+
+.info .address {
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 80%;
+    letter-spacing: 1px;
+    padding-left: 15px;
+    line-height: 2;
+    /* background-color: #ccc; */
+}
+
+.info i {
+    font-size: 20px;
+}
+
+.info .contact {
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 80%;
+    letter-spacing: 1px;
+    /* background-color: #aaa; */
+}
+
+.info .contact .mail {
+    margin-bottom: 5px;
+}
+
+
+/* ---------------- skills ---------------- */
+
+aside.skills {
+    grid-area: skills;
+    z-index: 5;
+}
+
+aside .dob {
+    margin: 15px;
+    font-size: 70%;
+    text-align: center;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #fff;
+}
+
+aside h2 {
+    width: 100%;
+    text-align: center;
+    margin: 40px auto 0;
+    letter-spacing: 1.5px;
+}
+
+aside .card:first-of-type {
+    margin-top: 0;
+}
+
+aside .card {
+    margin: 25px 15px;
+    padding: 10px;
+    padding-top: 10px;
+    font-size: 75%;
+    text-transform: uppercase;
+    /* border: 1px solid #fff;
+    border-radius: 5px; */
+}
+
+aside .card p {
+    margin: 4px auto;
+}
+
+aside .card .base {
+    display: block;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--light-color);
+}
+
+aside .card .base span {
+    display: block;
+    height: 100%;
+}
+
+aside .card .base .filler {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+}
+
+aside .card .base .filler.fill-anim {
+    animation: skillGrow 1s both;
+    animation-delay: .5s;
+}
+
+@keyframes skillGrow {
+    100% {
+        width: 100%;
+    }
+}
+
+aside .card .base .span-html,
+aside .card .base .span-css {
+    width: 30%;
+}
+
+aside .card .base .span-js {
+    width: 20%;
+}
+
+aside .card .base .span-catia,
+aside .card .base .span-part-design,
+aside .card .base .span-ps,
+aside .card .base .span-lr {
+    width: 80%;
+}
+
+aside .card .base .span-technical-drawing {
+    width: 70%;
+}
+
+aside .card .base .span-indesign {
+    width: 60%;
+}
+
+aside .hobby {
+    margin-top: 10px;
+}
+
+aside .hobby a i {
+    width: 20px;
+    margin-right: 10px;
+}
+
+aside .hobby a p {
+    font-weight: 300;
+}
+
+
+/* ---------------- photo ---------------- */
+
+.photo {
+    grid-area: photo;
+    background-image: url(img/photo-12-EDIT-small.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ---------------- experience & education ---------------- */
+
+article.experience::after {
+    content: '';
+    position: absolute;
+    height: 100px;
+    top: 200px;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #fff;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+article.experience.skew-anim::after {
+    animation: skewMove 1s both;
+}
+
+@keyframes skewMove {
+    100% {
+        top: 153px;
+    }
+}
+
+article.experience {
+    grid-area: experience;
+    padding: 10px;
+    padding-right: 30px;
+    ;
+}
+
+article.experience h2 {
+    text-align: center;
+    font-size: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    animation: slideInFromBottom 1s both;
+    animation-delay: .2s;
+}
+
+article.experience .jobs {
+    display: grid;
+    grid-template-columns: 90px auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "timeline job3"
+        "timeline job2"
+        "timeline job1";
+    animation: slideInFromBottom 1s both;
+    animation-delay: .3s;
+}
+
+article.experience .jobs .timeline,
+article.experience .education .timeline {
+    grid-area: timeline;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    /* background-color: #ddd; */
+}
+
+article.experience .jobs .timeline .axis,
+article.experience .education .timeline .axis {
+    position: absolute;
+    top: -10px;
+    right: 6px;
+    width: 2px;
+    height: 100%;
+    border-left: 2px dotted #888;
+}
+
+article.experience .jobs .timeline i,
+article.experience .education .timeline i {
+    position: absolute;
+    top: -20px;
+    right: -.5px;
+    color: #666;
+}
+
+article.experience .job .jobname,
+article.experience .stage .schoolname {
+    position: relative;
+}
+
+article.experience .job .jobname::before,
+article.experience .stage .schoolname::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #666;
+}
+
+article.experience .job .jobname::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -85px;
+    width: 70px;
+    font-size: 60%;
+    font-weight: 400;
+    text-align: left;
+}
+
+article.experience .job:nth-of-type(2) .jobname::after {
+    content: "07.2020 - present";
+}
+
+article.experience .job:nth-of-type(3) .jobname::after {
+    content: "10.2018 - 06.2020";
+}
+
+article.experience .job:nth-of-type(4) .jobname::after {
+    content: "07.2016 - 09.2018";
+}
+
+article.experience .stage .schoolname::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -90px;
+    width: 70px;
+    font-size: 90%;
+    font-weight: 400;
+    text-align: left;
+}
+
+article.experience .stage:nth-of-type(2) .schoolname::after {
+    content: "2017 - 2018";
+}
+
+article.experience .stage:nth-of-type(3) .schoolname::after {
+    content: "2013 - 2017";
+}
+
+
+
+
+article.experience .jobs .job:nth-of-type(0) {
+    grid-area: job1;
+}
+
+article.experience .jobs .job:nth-of-type(1) {
+    grid-area: job2;
+}
+
+article.experience .jobs .job:nth-of-type(2) {
+    grid-area: job3;
+}
+
+
+
+
+
+article.experience .job,
+article.experience .stage {
+    margin-left: 10px;
+}
+
+article.experience .job .position {
+    margin-top: -8px;
+}
+
+article.experience .job ul,
+article.experience .stage p {
+    margin: 10px auto;
+}
+
+article.experience .job ul li,
+article.experience .stage p {
+    font-size: 50%;
+    list-style-type: square;
+    line-height: 1.2;
+    margin-left: 20px;
+}
+
+
+
+/* education */
+article.experience h2:nth-of-type(2) {
+    margin: 20px auto 15px;
+}
+
+article.experience .education {
+    display: grid;
+    grid-template-columns: 90px auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "timeline stage2"
+        "timeline stage1";
+    animation: slideInFromBottom 1s both;
+    animation-delay: .3s;
+}
+
+article.experience .stage h3 {
+    font-size: 75%;
+}
+
+article.experience .stage p.diploma {
+    font-size: 70%;
+    font-weight: 700;
+}
+
+
+/* ---------------- footer ---------------- */
+
+footer {
+    grid-area: footer;
+    background: linear-gradient(#fff, #aaa);
+    padding: 10px 25px;
+    font-size: 50%;
+}
+
+
+/* ---------------- animations ---------------- */
+/* @keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+} */

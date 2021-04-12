@@ -1,0 +1,223 @@
+/* ---------------- media ---------------- */
+@media(max-width: 700px) {
+
+
+    /* ---------------- burger ---------------- */
+    .burger {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        z-index: 999;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .4s ease;
+    }
+
+    /* hamburger line */
+    .burger .burger-bar {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .4s ease;
+    }
+
+    /* top and bottom lines */
+    .burger .burger-bar::before,
+    .burger .burger-bar::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: -8px;
+        width: 100%;
+        height: 2px;
+        background: inherit;
+        transition: all .4s ease;
+    }
+
+    /* bottom line */
+    .burger .burger-bar::after {
+        top: 8px
+    }
+
+    .burger.active-menu {
+        top: 20px;
+        right: 20px;
+        width: 80px;
+        height: 80px;
+        background-color: var(--primary-color);
+    }
+
+    body.active-menu {
+        overflow: hidden;
+    }
+
+    .burger.active-menu .burger-bar {
+        transform: rotate(135deg);
+        transition: all .4s ease;
+    }
+
+    .burger.active-menu .burger-bar::before,
+    .burger.active-menu .burger-bar::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    /* ---------------- menu ---------------- */
+    .menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -100;
+        background-color: rgba(0, 0, 0, .8);
+        opacity: 0;
+        transition: opacity .4s ease, z-index .4s ease;
+    }
+
+    .menu ul {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        /* background-color: #ddd; */
+    }
+
+    .menu ul>li {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .menu ul>li a {
+        padding: 20px 40px;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+
+    .menu.active-menu {
+        opacity: 1;
+        z-index: 100;
+    }
+
+    /* ---------------- main wrapper ---------------- */
+    .wrapper {
+        position: relative;
+        width: auto;
+        height: auto;
+        margin: auto;
+        box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+    }
+
+    /* ---------------- main grid ---------------- */
+    .wrapper.grid {
+        grid-template-columns: auto;
+        grid-template-rows: 500px auto auto auto auto;
+        grid-template-areas:
+            "photo"
+            "info"
+            "skills"
+            "experience"
+            "footer";
+    }
+
+    /* ---------------- info ---------------- */
+    .info h1 {
+        margin: 15px auto;
+        padding-bottom: 10px;
+    }
+
+    .info .address {
+        flex-basis: 100%;
+        font-size: 120%;
+        letter-spacing: 1px;
+        margin: 10px 40px;
+        justify-content: center;
+    }
+
+    .info i {
+        font-size: 25px;
+    }
+
+    .info .contact {
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 80%;
+        letter-spacing: 1px;
+        margin: 5px;
+    }
+
+    .info .contact .mail,
+    .info .contact .phone {
+        flex-basis: 100%;
+        font-size: 130%;
+        margin: 10px auto;
+    }
+
+    .info .contact .mail p,
+    .info .contact .phone p {
+        font-size: 120%;
+    }
+
+    /* ---------------- skills ---------------- */
+    aside .dob {
+        margin: 30px;
+        font-size: 120%;
+        text-align: center;
+    }
+
+    aside h2 {
+        font-size: 200%;
+    }
+
+    aside .card {
+        margin: 25px 20%;
+        font-size: 100%;
+    }
+
+    aside .hobby {
+        margin-bottom: 30px;
+    }
+
+    aside .hobby a i {
+        margin-right: 20px;
+        font-size: 150%;
+    }
+
+    aside .hobby a p {
+        font-size: 150%;
+        font-weight: 400;
+    }
+
+    /* ---------------- experience & education ---------------- */
+    article.experience::after {
+        display: none;
+    }
+
+    article.experience {
+        padding: 10px;
+    }
+
+    article.experience h2 {
+        font-size: 150%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    article.experience h2:nth-of-type(2) {
+        margin: 40px auto 30px;
+    }
+}
